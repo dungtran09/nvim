@@ -81,8 +81,6 @@ return packer.startup(function(use)
 	-- Super fast git decorations implemented purely in lua/teal.
 	use("lewis6991/gitsigns.nvim")
 
-	-- fuzzy finding w/ telescope
-
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
 	use("hrsh7th/cmp-buffer") -- source for text in buffer

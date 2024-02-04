@@ -56,3 +56,6 @@ keymap.set("n", "<leader>jc", ':lua require("jdtls).compile("incremental")')
 -- Move tab previous/next
 keymap.set("n", "<leader>p", "<Cmd>BufferPrevious<CR>", opts)
 keymap.set("n", "<leader>n", "<Cmd>BufferNext<CR>", opts)
+
+-- Save and auto compile source file c, cpp
+keymap.set("n", "<F5>",  ":w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++17   -O2   % -o %:r && %:r<CR>", opts)
