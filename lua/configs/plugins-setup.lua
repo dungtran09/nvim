@@ -51,7 +51,7 @@ return packer.startup(function(use)
   	-- Telescope
 	use {
   	'nvim-telescope/telescope.nvim', tag = '0.1.5',
--- or                            , branch = '0.1.x',
+	-- or                            , branch = '0.1.x',
   	requires = { {'nvim-lua/plenary.nvim'} }
 	}
 	-- Comment
@@ -69,8 +69,11 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Statusline plugin written in pure lua & icons
-	use("nvim-lualine/lualine.nvim")
-	
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+	  }
+
 	-- File manager
 		use({
 			"nvim-neo-tree/neo-tree.nvim",
@@ -111,7 +114,9 @@ return packer.startup(function(use)
 		config = function()
 			require('lspsaga').setup({})
 		end,
+		requires = 'nvim-tree/nvim-web-devicons',
 	})
+	
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
