@@ -48,6 +48,12 @@ return packer.startup(function(use)
 
 	use("vim-scripts/ReplaceWithRegister")
 
+  	-- Telescope
+	use {
+  	'nvim-telescope/telescope.nvim', tag = '0.1.5',
+-- or                            , branch = '0.1.x',
+  	requires = { {'nvim-lua/plenary.nvim'} }
+	}
 	-- Comment
 	use("numToStr/Comment.nvim")
 
