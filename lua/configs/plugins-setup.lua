@@ -32,7 +32,8 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Color themes
-	use("sainnhe/gruvbox-material")
+	use ("ellisonleao/gruvbox.nvim")
+
 	-- The fastest Neovim colorizer
 	use("norcalli/nvim-colorizer.lua")
 
@@ -55,23 +56,32 @@ return packer.startup(function(use)
 
 	-- A file explorer tree for neovim written in lua
 	use("nvim-tree/nvim-tree.lua")
+	
+		use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 
 	-- Icons
 	use("kyazdani42/nvim-web-devicons")
 
-	-- A snazzy bufferline for Neovim
-	use("romgrk/barbar.nvim")
-	-- use({ "akinsho/bufferline.nvim", tag = "v3.*" })
-
 	-- Statusline plugin written in pure lua & icons
 	use("nvim-lualine/lualine.nvim")
-
+	
+	-- File manager
+		use({
+			"nvim-neo-tree/neo-tree.nvim",
+			branch = "v2.x",
+			requires = {
+				"nvim-lua/plenary.nvim",
+				"nvim-tree/nvim-web-devicons",
+				"MunifTanjim/nui.nvim",
+			},
+		})
+	
+	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
+	
 	-- Super fast git decorations implemented purely in lua/teal.
 	use("lewis6991/gitsigns.nvim")
 
 	-- fuzzy finding w/ telescope
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
 	-- autocompletion
 	use("hrsh7th/nvim-cmp") -- completion plugin
@@ -90,7 +100,14 @@ return packer.startup(function(use)
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+	
+	use ({
+		'nvimdev/lspsaga.nvim',
+		after = 'nvim-lspconfig',
+		config = function()
+			require('lspsaga').setup({})
+		end,
+	})
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 
@@ -120,17 +137,8 @@ return packer.startup(function(use)
 	-- Smooth scrolling neovim plugin written in lua
 	use("karb94/neoscroll.nvim")
 
-	--Indent guides for Neovim
-	use("lukas-reineke/indent-blankline.nvim")
-
-	-- Web-tools
-	use("ray-x/web-tools.nvim")
-
 	-- Terminal in Neovim
 	use({ "akinsho/toggleterm.nvim", tag = "*" })
-
-	-- For Java
-	use("mfussenegger/nvim-jdtls")
 
 	if packer_bootstrap then
 		require("packer").sync()

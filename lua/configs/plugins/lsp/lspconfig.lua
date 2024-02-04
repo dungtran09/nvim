@@ -88,3 +88,11 @@ lspconfig["emmet_ls"].setup({
 	on_attach = on_attach,
 	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 })
+
+-- configure clangd server
+lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+	single_file_support = true,
+	on_attach = on_attach,
+})
