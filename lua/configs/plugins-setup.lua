@@ -32,7 +32,7 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Color themes
-	use ("ellisonleao/gruvbox.nvim")
+	use("cryptomilk/nightcity.nvim")
 
 	-- The fastest Neovim colorizer
 	use("norcalli/nvim-colorizer.lua")
@@ -48,12 +48,13 @@ return packer.startup(function(use)
 
 	use("vim-scripts/ReplaceWithRegister")
 
-  	-- Telescope
-	use {
-  	'nvim-telescope/telescope.nvim', tag = '0.1.5',
-	-- or                            , branch = '0.1.x',
-  	requires = { {'nvim-lua/plenary.nvim'} }
-	}
+	-- Telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.5",
+		-- or                            , branch = '0.1.x',
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	-- Comment
 	use("numToStr/Comment.nvim")
 
@@ -62,31 +63,31 @@ return packer.startup(function(use)
 
 	-- A file explorer tree for neovim written in lua
 	use("nvim-tree/nvim-tree.lua")
-	
-		use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
+
+	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 
 	-- Icons
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Statusline plugin written in pure lua & icons
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-	  }
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
 
 	-- File manager
-		use({
-			"nvim-neo-tree/neo-tree.nvim",
-			branch = "v2.x",
-			requires = {
-				"nvim-lua/plenary.nvim",
-				"nvim-tree/nvim-web-devicons",
-				"MunifTanjim/nui.nvim",
-			},
-		})
-	
-	use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-	
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+	})
+
+	use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
+
 	-- Super fast git decorations implemented purely in lua/teal.
 	use("lewis6991/gitsigns.nvim")
 
@@ -107,16 +108,16 @@ return packer.startup(function(use)
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	
-	use ({
-		'nvimdev/lspsaga.nvim',
-		after = 'nvim-lspconfig',
+
+	use({
+		"nvimdev/lspsaga.nvim",
+		after = "nvim-lspconfig",
 		config = function()
-			require('lspsaga').setup({})
+			require("lspsaga").setup({})
 		end,
-		requires = 'nvim-tree/nvim-web-devicons',
+		requires = "nvim-tree/nvim-web-devicons",
 	})
-	
+
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 

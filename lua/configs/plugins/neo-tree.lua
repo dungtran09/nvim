@@ -5,19 +5,20 @@ if not status then
 end
 
 neoTree.setup({
-  opts = {
-    filesystem = {
-      filtered_items = {
-        --visible = true,
-        hide_dotfiles = false,
-        hide_gitignored = true,
-        hide_by_name = {
-          ".github",
-          ".gitignore",
-          "package-lock.json",
-        },
-        never_show = { ".git" },
-      },
-    },
-  },
+	filesystem = {
+		filtered_items = {
+			visible = false,
+			hide_dotfiles = true,
+			hide_gitignored = true,
+			hide_by_name = {
+				".github",
+				".gitignore",
+				"package-lock.json",
+			},
+			never_show = { ".git" },
+			always_show = {
+				"node_modules",
+			},
+		},
+	},
 })
