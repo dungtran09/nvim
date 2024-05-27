@@ -58,5 +58,8 @@ keymap.set("n", "<leader>p", "<Cmd>BufferPrevious<CR>", opts)
 keymap.set("n", "<leader>n", "<Cmd>BufferNext<CR>", opts)
 
 -- Save and auto compile source file c, cpp
-keymap.set("n", "<F5>",  ":w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++17   -O2   % -o %:r && %:r<CR>", opts)
+keymap.set("n", "<F5>", ":w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++17   -O2   % -o %:r && %:r<CR>", opts)
 keymap.set("n", "<F8>", ":w <bar> !gcc % && ./a.out <CR>", opts)
+
+-- run python file
+keymap.set("n", "<F4>", ":w <bar> exec '!python3 '.shellescape('%')<CR>", opts)

@@ -96,3 +96,6 @@ lspconfig["clangd"].setup({
 	single_file_support = true,
 	on_attach = on_attach,
 })
+
+-- configure python lsp
+lspconfig["pylsp"].setup({})

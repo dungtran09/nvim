@@ -1,4 +1,3 @@
-
 local status, bufferline = pcall(require, "bufferline")
 if not status then
 	print("Bufferline is not installed")
@@ -21,6 +20,6 @@ bufferline.setup({
 		separator_style = "thin",
 	},
 	highlights = {
-		fill = { bg = "#282828" },
+		-- fill = { bg = "#282828" },
 	},
 })
