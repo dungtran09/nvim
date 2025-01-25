@@ -1,9 +1,8 @@
 return {
-	"arturgoms/moonbow.nvim",
+	"LazyVim/LazyVim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.cmd("colorscheme moonbow")
+		vim.cmd("colorscheme default")
 	end,
 }
-

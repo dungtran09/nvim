@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
- 
+
 local function map(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
@@ -32,3 +32,10 @@ map("n", "<C-Left>", "<C-w><")
 map("n", "<C-Right>", "<C-w>>")
 map("n", "<C-Up>", "<C-w>+")
 map("n", "<C-Down>", "<C-w>-")
+
+-- Comnpile C++ file
+map("n", "<F5>", ":w <bar> !g++ -Wall -std=c++17 % -o a.out && ./a.out <CR>")
+
+-- Compile C file
+map("n", "<F6>", ":w <bar> !gcc -Wall % -o a.out && ./a.out <CR>")
+
