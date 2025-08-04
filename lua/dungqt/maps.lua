@@ -34,7 +34,7 @@ map("n", "<C-Up>", "<C-w>+")
 map("n", "<C-Down>", "<C-w>-")
 
 -- Comnpile C++ file
-map("n", "<F5>", ":w <bar> !g++ -Wall -g -std=c++17 % -o a.out && ./a.out <CR>")
+map("n", "<F5>", ":w <bar> !g++ -Wall -g -std=c++17 % -o a.exe && a.exe <CR>")
 
 -- Compile C file
-map("n", "<F6>", ":w <bar> !gcc -Wall -g % -o a.out && ./a.out <CR>")
+map("n", "<F6>", ":w <bar> !gcc -Wall -g % -o a.exe && a.exe <CR>")

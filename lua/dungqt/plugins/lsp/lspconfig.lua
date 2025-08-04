@@ -32,43 +32,7 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			["ts_ls"] = function()
-				nvim_lsp["ts_ls"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["cssls"] = function()
-				nvim_lsp["cssls"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["tailwindcss"] = function()
-				nvim_lsp["tailwindcss"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["html"] = function()
-				nvim_lsp["html"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["jsonls"] = function()
-				nvim_lsp["jsonls"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["eslint"] = function()
-				nvim_lsp["eslint"].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-			["pyright"] = function()
+      ["pyright"] = function()
 				nvim_lsp["pyright"].setup({
 					on_attach = on_attach,
 					capabilities = capabilities,
@@ -78,8 +42,12 @@ return {
 				nvim_lsp["clangd"].setup({
 					capabilities = capabilities,
 					filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-					-- single_file_support = true,
+					single_file_support = true,
 					on_attach = on_attach,
+          cmd = {
+            "clangd",
+            "--query-driver=C:\\ProgramData\\chocolatey\\lib\\winlibs\\tools\\mingw64\\bin\\g++.exe",
+            "--header-insertion=iwyu"},
 				})
 			end,
 		})
