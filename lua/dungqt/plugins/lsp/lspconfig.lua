@@ -38,18 +38,20 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			["clangd"] = function()
+		["clangd"] = function()
 				nvim_lsp["clangd"].setup({
 					capabilities = capabilities,
 					filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 					single_file_support = true,
 					on_attach = on_attach,
-          cmd = {
-            "clangd",
-            "--query-driver=C:\\ProgramData\\chocolatey\\lib\\winlibs\\tools\\mingw64\\bin\\g++.exe",
-            "--header-insertion=iwyu"},
-				})
-			end,
+					cmd = {
+					  "clangd",
+					  "--query-driver=C:\\ProgramData\\chocolatey\\lib\\winlibs\\tools\\mingw64\\bin\\g++.exe",
+					  "--header-insertion=iwyu",
+					},
+					root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git", ".clangd"),
+				  })
+				end
 		})
 	end,
 }
